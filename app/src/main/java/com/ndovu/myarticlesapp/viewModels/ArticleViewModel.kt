@@ -1,5 +1,6 @@
 package com.ndovu.myarticlesapp.viewModels
 
+import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import androidx.lifecycle.LiveData
@@ -23,7 +24,7 @@ class ArticleViewModel internal constructor(
     private val allArticlesResponse: MutableLiveData<ArticleResponse?> = MutableLiveData()
 
 
-    fun fetchArticles(period: Int, apiKey: String): LiveData<ArticleResponse?> {
+    fun fetchArticles(period: Int, apiKey: String): MutableLiveData<ArticleResponse?> {
         retrofitServiceApi.returnAllArticles(period, apiKey)
             .enqueue(object : Callback<ArticleResponse?> {
                 override fun onFailure(call: Call<ArticleResponse?>, throwable: Throwable) {
@@ -32,13 +33,18 @@ class ArticleViewModel internal constructor(
                 }
 
                 override fun onResponse(
-                    call: Call<ArticleResponse?>, response
-                    : Response<ArticleResponse?>
+                    call: Call<ArticleResponse?>,
+                    response: Response<ArticleResponse?>
                 ) {
                     progressBar.visibility = View.GONE
                     if (response.code() == 200) {
-                        allArticlesResponse.postValue(response.body())
+                        if (response.body() != null) {
+                            allArticlesResponse.postValue(response.body())
+                        }else {
+                            Log.d("NULLBODY", "HERE")
+                        }
                     } else {
+                        Log.d("FAILEDHERE", "NOW")
                         ErrorHandler.handleErrorMessage(response, errorDisplay)
                     }
                 }

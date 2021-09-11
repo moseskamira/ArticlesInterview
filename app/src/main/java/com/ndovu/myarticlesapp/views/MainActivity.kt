@@ -26,27 +26,22 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.retrieve_articles_progress_bar)
 
 
-        val articleViewModelFactory =ArticleViewModelFactory(errorDisplay, progressBar)
+        val articleViewModelFactory = ArticleViewModelFactory(errorDisplay, progressBar)
         articleViewModel = ViewModelProvider(this, articleViewModelFactory)
             .get(ArticleViewModel::class.java)
         fetchArticles()
-
     }
 
     private fun fetchArticles() {
         progressBar.visibility = View.VISIBLE
         articleViewModel.fetchArticles(7, "RREDo9ObCv9Smd9FqH45wcnXZ5RXUE9K")
-            .observe(this, returnArticlesObserver())
+            .observe(this, {
+                if (it != null) {
+                    Log.d("FIRSTARTICLE", it.results[1].abstract)
+                } else {
+                    Log.d("SSSS", "HERE")
+                }
+
+            })
     }
-
-    private fun returnArticlesObserver(): Observer<in ArticleResponse?> {
-        return Observer {
-            if (it != null) {
-                Log.d("RESPONSEDATA", it.results[0].title)
-            }
-
-        }
-    }
-
-
 }
