@@ -29,7 +29,6 @@ class ArticleDetailsActivity : AppCompatActivity() {
     }
 
     private fun retrieveBundleData() {
-        val type = articleDetailsBundle.getString("type")!!
         val updatedAt = articleDetailsBundle.getString("updatedAt")!!
         val source = articleDetailsBundle.getString("source")!!
         val section = articleDetailsBundle.getString("section")!!
