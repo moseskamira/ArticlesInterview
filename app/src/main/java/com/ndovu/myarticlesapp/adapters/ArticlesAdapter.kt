@@ -30,11 +30,11 @@ class ArticlesAdapter(private val context: Context, private val dataSet: ArrayLi
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val articleTitle = dataSet[position].title
-        val author = dataSet[position].abstract
+        val abstract = dataSet[position].abstract
         val articleCreatedAt = dataSet[position].published_date
 //        val imageUrl = dataSet[position]
         viewHolder.articleTitleTextView.text = articleTitle
-        viewHolder.authorTextView.text = author
+        viewHolder.authorTextView.text = abstract
         viewHolder.articleCreatedAtTextView.text = "Published At: $articleCreatedAt"
 //        Glide.with(context).asBitmap().load(imageUrl).into(viewHolder.imageView)
 
@@ -46,6 +46,9 @@ class ArticlesAdapter(private val context: Context, private val dataSet: ArrayLi
             moveToDetailIntent.putExtra("section", dataSet[position].section)
             moveToDetailIntent.putExtra("subsection", dataSet[position].subsection)
             moveToDetailIntent.putExtra("type", dataSet[position].type)
+            moveToDetailIntent.putExtra("title", dataSet[position].title)
+            moveToDetailIntent.putExtra("abstract", abstract)
+            moveToDetailIntent.putExtra("createdAt", articleCreatedAt)
             it.context.startActivity(moveToDetailIntent)
         }
 
