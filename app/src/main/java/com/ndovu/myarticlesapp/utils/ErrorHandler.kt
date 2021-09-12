@@ -9,10 +9,11 @@ class ErrorHandler {
         fun <T> handleErrorMessage(response: Response<T>, errorDisplay: TextInputLayout) {
             var errorMessage = ""
             val jsonErrorResponse = JSONObject(response.errorBody()!!.string())
-            errorMessage = if (jsonErrorResponse.has("message")) {
-                jsonErrorResponse.getString("message")
-            } else {
-                jsonErrorResponse.getString("errorMessage")
+            if (jsonErrorResponse.has("fault")) {
+                val faultObject = jsonErrorResponse.getJSONObject("fault");
+                if (faultObject.has("faultstring")) {
+                    errorMessage = faultObject.getString("faultstring");
+                }
             }
             errorDisplay.error = errorMessage
         }

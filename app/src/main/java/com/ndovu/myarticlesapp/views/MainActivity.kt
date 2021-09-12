@@ -1,10 +1,10 @@
 package com.ndovu.myarticlesapp.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +12,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.ndovu.myarticlesapp.R
 import com.ndovu.myarticlesapp.adapters.ArticlesAdapter
 import com.ndovu.myarticlesapp.models.Results
+import com.ndovu.myarticlesapp.utils.Credentials
 import com.ndovu.myarticlesapp.viewModelFactory.ArticleViewModelFactory
 import com.ndovu.myarticlesapp.viewModels.ArticleViewModel
 
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var articlesAdapter: ArticlesAdapter
     private lateinit var articlesList: ArrayList<Results>
 
+    private lateinit var toolBar: Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +34,10 @@ class MainActivity : AppCompatActivity() {
         errorDisplay = findViewById(R.id.error_display_text_layout)
         progressBar = findViewById(R.id.retrieve_articles_progress_bar)
         articlesRecyclerView = findViewById(R.id.articles_list_recycler_view)
+        toolBar = findViewById(R.id.tool_bar)
+        setSupportActionBar(toolBar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         articlesList = ArrayList()
-
-
         val articleViewModelFactory = ArticleViewModelFactory(errorDisplay, progressBar)
         articleViewModel = ViewModelProvider(this, articleViewModelFactory)
             .get(ArticleViewModel::class.java)
@@ -42,21 +46,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchArticles() {
         progressBar.visibility = View.VISIBLE
-        articleViewModel.fetchArticles(7, "RREDo9ObCv9Smd9FqH45wcnXZ5RXUE9K")
+        articleViewModel.fetchArticles(7, Credentials.returnApiKey())
             .observe(this, {
                 if (it != null) {
                     val articles = it.results
                     articlesList.addAll(articles)
                     initializeRecyclerView()
-                } else {
-                    Log.d("SSSS", "HERE")
                 }
 
             })
     }
+
     private fun initializeRecyclerView() {
         articlesAdapter = ArticlesAdapter(this, articlesList)
-        articlesAdapter.notifyDataSetChanged()
         articlesRecyclerView.layoutManager = LinearLayoutManager(this)
         articlesRecyclerView.setHasFixedSize(true)
         articlesRecyclerView.adapter = articlesAdapter

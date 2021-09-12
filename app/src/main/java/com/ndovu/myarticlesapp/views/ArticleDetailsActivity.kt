@@ -15,7 +15,6 @@ class ArticleDetailsActivity : AppCompatActivity() {
     private lateinit var articleCreatedAtTv: TextView
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_details)
@@ -27,9 +26,7 @@ class ArticleDetailsActivity : AppCompatActivity() {
         abstractTv = findViewById(R.id.article_abstract_detail)
         articleCreatedAtTv = findViewById(R.id.article_created_at_detail)
         retrieveBundleData()
-
     }
-
 
     private fun retrieveBundleData() {
         val type = articleDetailsBundle.getString("type")!!
@@ -46,7 +43,11 @@ class ArticleDetailsActivity : AppCompatActivity() {
         articleCreatedAtTv.text = createdAt
         articleSourceTv.text = source
         articleSectionTv.text = section
-        articleSubSectionTv.text = subsection
+        if (subsection.isNotEmpty()) {
+            articleSubSectionTv.text = subsection
+        } else {
+            articleSubSectionTv.text = "N/A"
+        }
 
 
     }
