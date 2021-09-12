@@ -1,9 +1,7 @@
 package com.ndovu.myarticlesapp.viewModels
 
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ndovu.myarticlesapp.models.ArticleResponse
@@ -40,11 +38,8 @@ class ArticleViewModel internal constructor(
                     if (response.code() == 200) {
                         if (response.body() != null) {
                             allArticlesResponse.postValue(response.body())
-                        }else {
-                            Log.d("NULLBODY", "HERE")
                         }
                     } else {
-                        Log.d("FAILEDHERE", "NOW")
                         ErrorHandler.handleErrorMessage(response, errorDisplay)
                     }
                 }

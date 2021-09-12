@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".views.MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".views.MainActivity"
+    tools:openDrawer="start">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/error_display_text_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-    <ProgressBar
-        android:id="@+id/retrieve_articles_progress_bar"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center"
-        android:background="@drawable/circle_shape"
-        android:indeterminate="false"
-        android:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/articles_list_recycler_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="4dp" />
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <include layout="@layout/app_bar_home" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/error_display_text_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_bar_home_id"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal" />
+
+        <ProgressBar
+            android:id="@+id/retrieve_articles_progress_bar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/error_display_text_layout"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_shape"
+            android:indeterminate="false"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/articles_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/retrieve_articles_progress_bar"
+            android:padding="4dp" />
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
