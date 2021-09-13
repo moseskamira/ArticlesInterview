@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp.models
+package com.interview.myarticlesapp.models
 
 import com.google.gson.annotations.SerializedName
 

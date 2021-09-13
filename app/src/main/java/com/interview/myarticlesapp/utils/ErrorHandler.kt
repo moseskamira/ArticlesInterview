@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp.utils
+package com.interview.myarticlesapp.utils
 
 import com.google.android.material.textfield.TextInputLayout
 import org.json.JSONObject

@@ -1,10 +1,10 @@
-package com.ndovu.myarticlesapp.viewModelFactory
+package com.interview.myarticlesapp.viewModelFactory
 
 import android.widget.ProgressBar
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
-import com.ndovu.myarticlesapp.viewModels.ArticleViewModel
+import com.interview.myarticlesapp.viewModels.ArticleViewModel
 
 
 class ArticleViewModelFactory internal constructor(

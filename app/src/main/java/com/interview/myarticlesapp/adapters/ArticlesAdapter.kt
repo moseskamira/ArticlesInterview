@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp.adapters
+package com.interview.myarticlesapp.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -11,9 +11,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.ndovu.myarticlesapp.R
-import com.ndovu.myarticlesapp.models.Results
-import com.ndovu.myarticlesapp.views.ArticleDetailsActivity
+import com.interview.myarticlesapp.R
+import com.interview.myarticlesapp.models.Results
+import com.interview.myarticlesapp.views.ArticleDetailsActivity
 
 class ArticlesAdapter(private val context: Context, private var dataSet: ArrayList<Results>) :
     RecyclerView.Adapter<ArticlesAdapter.ViewHolder>(), Filterable {

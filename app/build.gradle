@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.kt3k.coveralls'
 
 android {
     compileSdkVersion 30
@@ -21,6 +22,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
 
     compileOptions {
@@ -31,6 +35,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+
+coveralls {
+    jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
+}
+
+tasks.coveralls {
+    dependsOn 'connectedAndroidTest'
+    onlyIf { System.env.'CI' }
 }
 
 dependencies {
@@ -57,5 +71,16 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp")
     implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
+
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+    testImplementation 'junit:junit:4.13.1'
+
 
 }

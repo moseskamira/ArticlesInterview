@@ -1,9 +1,10 @@
-package com.ndovu.myarticlesapp.views
+package com.interview.myarticlesapp.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
-import com.ndovu.myarticlesapp.R
+import com.interview.myarticlesapp.R
 
 class ArticleDetailsActivity : AppCompatActivity() {
     private lateinit var articleDetailsBundle: Bundle
@@ -13,6 +14,7 @@ class ArticleDetailsActivity : AppCompatActivity() {
     private lateinit var articleTitleTv: TextView
     private lateinit var abstractTv: TextView
     private lateinit var articleCreatedAtTv: TextView
+    private lateinit var subsectionDisplay: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,7 @@ class ArticleDetailsActivity : AppCompatActivity() {
         articleTitleTv = findViewById(R.id.article_title_detail)
         abstractTv = findViewById(R.id.article_abstract_detail)
         articleCreatedAtTv = findViewById(R.id.article_created_at_detail)
+        subsectionDisplay = findViewById(R.id.textView6)
         retrieveBundleData()
     }
 
@@ -45,7 +48,8 @@ class ArticleDetailsActivity : AppCompatActivity() {
         if (subsection.isNotEmpty()) {
             articleSubSectionTv.text = subsection
         } else {
-            articleSubSectionTv.text = "N/A"
+            articleSubSectionTv.visibility = View.GONE
+            subsectionDisplay.visibility = View.GONE
         }
 
 

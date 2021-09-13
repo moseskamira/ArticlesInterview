@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp.services
+package com.interview.myarticlesapp.services
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
