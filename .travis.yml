@@ -1,6 +1,7 @@
 sudo: required
 language: android
 jdk: oraclejdk8
+
 env:
   global:
     - ANDROID_API_LEVEL=25
@@ -10,6 +11,7 @@ env:
     - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default)
 
 android:
+
   components:
     - tools
     - build-tools-30.0.2
