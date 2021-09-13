@@ -1,7 +1,7 @@
 
 # Articles App
 
-[![Build Status](https://app.travis-ci.com/moseskamira/ArticlesInterview.svg?branch=develop)
+[![Build Status](https://app.travis-ci.com/moseskamira/ArticlesInterview.svg?branch=develop)]
 
 - This Repository is intended for Interview purposes only.
 
@@ -23,8 +23,7 @@
 
 ![List Articles](/images/repos.png)
 
-
 ### Details Screen
 
 ![List Article Details](/images/detail.png)
-https://app.travis-ci.com/moseskamira/ArticlesInterview.svg?branch=develop
+
