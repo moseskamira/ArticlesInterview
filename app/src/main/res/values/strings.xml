@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyArticlesApp</string>
+    <string name="article_title">Article Title:</string>
+    <string name="abstract_tv">Abstract:</string>
+    <string name="published_on">Published On:</string>
+    <string name="source">Source:</string>
+    <string name="section">Section:</string>
+    <string name="sub_section">Sub Section:</string>
 </resources>
