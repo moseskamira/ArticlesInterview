@@ -1,6 +1,6 @@
-package com.ndovu.myarticlesapp.services
+package com.interview.myarticlesapp.services
 
-import com.ndovu.myarticlesapp.models.ArticleResponse
+import com.interview.myarticlesapp.models.ArticleResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

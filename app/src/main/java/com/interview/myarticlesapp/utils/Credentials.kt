@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp.utils
+package com.interview.myarticlesapp.utils
 
 class Credentials {
     companion object {

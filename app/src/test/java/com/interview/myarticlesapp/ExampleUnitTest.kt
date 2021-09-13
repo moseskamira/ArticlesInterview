@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp
+package com.interview.myarticlesapp
 
 import org.junit.Test
 

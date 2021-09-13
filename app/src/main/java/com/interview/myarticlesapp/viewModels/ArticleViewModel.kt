@@ -1,17 +1,17 @@
-package com.ndovu.myarticlesapp.viewModels
+package com.interview.myarticlesapp.viewModels
 
 import android.view.View
 import android.widget.ProgressBar
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ndovu.myarticlesapp.models.ArticleResponse
-import com.ndovu.myarticlesapp.services.RetrofitInstance
-import com.ndovu.myarticlesapp.services.RetrofitServiceApi
+import com.interview.myarticlesapp.models.ArticleResponse
+import com.interview.myarticlesapp.services.RetrofitInstance
+import com.interview.myarticlesapp.services.RetrofitServiceApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.google.android.material.textfield.TextInputLayout
-import com.ndovu.myarticlesapp.utils.ErrorHandler
+import com.interview.myarticlesapp.utils.ErrorHandler
 
 class ArticleViewModel internal constructor(
     val errorDisplay: TextInputLayout,

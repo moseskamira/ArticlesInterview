@@ -1,4 +1,4 @@
-package com.ndovu.myarticlesapp.views
+package com.interview.myarticlesapp.views
 
 import android.os.Bundle
 import android.view.View
@@ -9,12 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputLayout
-import com.ndovu.myarticlesapp.R
-import com.ndovu.myarticlesapp.adapters.ArticlesAdapter
-import com.ndovu.myarticlesapp.models.Results
-import com.ndovu.myarticlesapp.utils.Credentials
-import com.ndovu.myarticlesapp.viewModelFactory.ArticleViewModelFactory
-import com.ndovu.myarticlesapp.viewModels.ArticleViewModel
+import com.interview.myarticlesapp.R
+import com.interview.myarticlesapp.adapters.ArticlesAdapter
+import com.interview.myarticlesapp.models.Results
+import com.interview.myarticlesapp.utils.Credentials
+import com.interview.myarticlesapp.viewModelFactory.ArticleViewModelFactory
+import com.interview.myarticlesapp.viewModels.ArticleViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var articlesList: ArrayList<Results>
 
     private lateinit var toolBar: Toolbar
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
